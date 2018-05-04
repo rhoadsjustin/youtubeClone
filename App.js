@@ -26,6 +26,34 @@ const results = 30
 
 
 class App extends Component {
+  static navigationOptions = {
+    headerStyle: {
+      backgroundColor: '#fff'
+    },
+    headerLeft: (
+      <TouchableOpacity>
+        <Image
+        style={{height: 22, width: 98, color: '#fff', marginLeft: 25}}
+        source={require('./images/logo.png')} />
+      </TouchableOpacity>
+    ),
+    headerRight: (
+      <View style={{ flexDirection: 'row', marginRight: 20}}>
+       <TouchableOpacity style={{paddingHorizontal: 5}}>
+        <Icon name='cast-connected' size={25} color={'#555'} />
+      </TouchableOpacity>
+        <TouchableOpacity style={{ paddingHorizontal: 5 }}>
+          <Icon name='videocam' size={25} color={'#555'} />
+        </TouchableOpacity>
+        <TouchableOpacity style={{ paddingHorizontal: 5 }}>
+          <Icon name='search' size={25} color={'#555'} />
+        </TouchableOpacity>
+        <TouchableOpacity style={{ paddingHorizontal: 5 }}>
+          <Icon name='account-circle' size={25} color={'#555'} />
+        </TouchableOpacity>
+      </View>
+    )
+  }
   constructor(props) {
     super(props) 
     this.state = {
@@ -74,6 +102,28 @@ class App extends Component {
           )}
       </View>
       </ScrollView>
+      <View style={styles.tabBar}>
+        <TouchableOpacity style={styles.tabItems}>
+          <Icon name="home" size={25} color='#444' />
+          <Text style={styles.tabTitle}>Home</Text>
+        </TouchableOpacity>
+          <TouchableOpacity style={styles.tabItems}>
+            <Icon name="whatshot" size={25} color='#444' />
+            <Text style={styles.tabTitle}>Trending</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.tabItems}>
+            <Icon name="subscriptions" size={25} color='#444' />
+            <Text style={styles.tabTitle}>Subscriptions</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.tabItems}>
+            <Icons name="bell" size={25} color='#444' />
+            <Text style={styles.tabTitle}>Activity</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.tabItems}>
+            <Icon name="folder" size={25} color='#444' />
+            <Text style={styles.tabTitle}>Library</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -107,6 +157,25 @@ const styles = StyleSheet.create({
   vidText: {
     padding: 20,
     color: '#000'
+  },
+  tabBar: {
+    backgroundColor: '#fff',
+    height: 70,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    borderTopWidth: 0.5,
+    borderColor: '#bbb'
+  },
+  tabItems: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: 5
+  }, 
+  tabTitle: {
+    fontSize: 11,
+    color: '#333',
+    paddingTop: 4,
+    textDecorationLine: 'underline'
   }
 });
 
